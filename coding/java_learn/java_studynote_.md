@@ -173,7 +173,7 @@ String a = "100";
 int aInt = Integer.parseInt(a);  
 ```  
 
-｜数据类型|占用内存大小字节|名称来源|  
+|数据类型|占用内存大小字节|名称来源|  
 |---|---|---|  
 |byte|1|Byte,因为它占用一个字节的内存|  
 |short|2|Short Integer|  

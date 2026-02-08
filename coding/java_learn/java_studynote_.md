@@ -81,7 +81,7 @@ String s = "I'm Amigo";
 ### 注释  
 > 会被编译器忽略，用于解释代码协助读代码之用  
 
-* 单行注释 以双斜杠**`//`**开始，直到行尾.`//`之后的所有内容都会被视为注释，并会被编译器完全忽略。  
+* 单行注释 以双斜杠`//`开始，直到行尾。`//`之后的所有内容都会被视为注释，并会被编译器完全忽略。  
 * 多行注释 以`/*`开始，以`*/`结束。之间的所有内容都是注释，可以跨越多行。  
 
 ```java  
@@ -183,5 +183,79 @@ int aInt = Integer.parseInt(a);
 |double|8|Double Float|  
 
 > **重要** 变量的地址被认为是为其分配的内存块中第一个单元的地址。  
+
+### 从键盘输入
+
+与Python不同，java接收键盘输入数据的流程稍微麻烦。专有对象`System.in`一次只能读取一个字符。我们要借助类Scanner进行封装处理。
+
+直接看代码：
+```java
+Scanner console = new Scanner(System.in); // 创建一个Scanner类，等待接收键盘输入。
+
+String consoleString = console.nextLine(); // 读取字符串，强类型，需要先给变量声明数据类型String
+
+int consoleInt = console.nextInt(); // 读取一个整数
+double consoleDouble = console.nextDouble(); // 读取一个浮点数
+```
+
+
+## java基础-流程控制
+
+> 流程控制是编程语言中比较核心的基础内容，因此单独列出
+
+### 条件语句
+
+运算符 `if else`
+在Java中，通过条件语句，根据条件的真值执行不同的语句块。
+
+```java
+if (条件)
+    命令1;
+else
+    命令2;
+```
+
+```java
+int age = 17;
+if (age < 18)
+    System.out.println("You are small");
+else
+    System.out.println("You are old");
+```
+
+> **重要** 如果在条件成立或不成立时，需要执行多条语句，需要通过语句块来执行。
+> 语句块：用大括号将多条语句包裹起来。
+> 使用大括号，才能把多行代码放到同一个分支中，否则就会认为第二条及后面的语句非分支条件。Java中不会根据缩进来判断语句层级。`缩进只是为了看代码清晰`
+> Java中根据`{}`来判断语句层级
+> **建议** 始终写上大括号
+
+```java
+int temperature = 5;
+if (temperature < 0)
+{
+    System.out.println("外面很冷");
+    System.out.println("戴上帽子");
+}
+else if (temperature <= 5) // 条件组合 在多个选项中做出选择
+{
+    System.out.println("温度一般");
+}
+else
+{
+    System.out.println("暖和");
+}
+```
+
+> **重要** Java中不要混淆不同类型的运算符！！！整数的运算符都只用到整数中！
+
+整数比较运算符：
+|比较运算符|含义|示例|
+|---|---|---|
+|==|等于|x == 5|
+|!=|不等于|x != 5|
+|>|||
+|<|||
+|>=|||
+|<=|||
 
 

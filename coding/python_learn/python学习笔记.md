@@ -170,6 +170,10 @@ except ValueError:
 
 #### list 列表
 
+python中 最重要的数据结构之一
+
+list 是有序、可变、可重复的容器
+
 特性：
 * 有序
 * 可重复
@@ -180,33 +184,97 @@ except ValueError:
 
 常见操作：
 * 创建
-    * `a = [1, 2, 3]`
-    * `a = list(range(5))`
-    * `[i * 2 for i in range(5)]`
+```python
+a = []
+a = [1, 2, 3]
+a = [i * 2 for i in range(5)]
+
+a = list()
+a = list(range(5))
+a = list((1, 2, 3))
+a = list("abc")
+```
 
 * 增
-    * `lst.append(10)`
-    * `lst.insert(1, "hello")`
-    * `lst.extend([7, 8, 9])`
-    * `lst + [100, 200]`
+```python
+lst.append(10)
+lst.insert(1, "hello")
+lst.extend([7, 8, 9])
+lst + [100, 200]
+```
+
 * 删
-    * `lst.remove("hello")`
-    * `x = lst.pop(2)`
-    * `del lst[1]`
-    * `del lst[1:3]`
-    * `lst.clear()`
+```python
+lst.remove("hello")
+x = lst.pop(2)
+del lst[1]
+del lst[1:3]
+lst.clear()
+```
+
 * 改
-    * `lst[0] = 99`
-    * `lst[1:3] = [10, 20]`
-    * `lst.reverse()`
-    * `lst.sort()`
-    * `lst.sort(reverse=True)`
-    * `new_lst = sorted(lst)`
-    * `new_lst = lst.copy()`
+```python
+lst[0] = 99
+lst[1:3] = [10, 20]
+lst.reverse()
+lst.sort()
+lst.sort(reverse=True)
+new_lst = sorted(lst)
+new_lst = lst.copy()
+```
+
 * 查
-    * `lst[0]`
-    * `lst[1:4]`
-    * `3 in lst`
-    * `lst.index("hello")`
-    * `lst.count("hello")`
-    
+```python
+lst[0]
+lst[1:4]
+3 in lst
+lst.index("hello")
+lst.count("hello")
+
+# list的遍历
+for x in a:
+    print(x) # 普通遍历
+
+for i, v in enumerate(a):
+    print(i, v) # 带下标遍历
+```
+
+* 其他使用
+```python
+# 拷贝
+a = [1, 2, 3]
+b = a # 引用拷贝 a,b 指向同一个引用，列表没有任何变化
+
+b = a.copy() # 浅拷贝 新增一个新列表，不过两个列表中的元素是相同的对象
+b = a[:] # 浅拷贝
+
+import copy
+b = copy.deepcopy(a) # 深拷贝 a与b是两个完全独立的列表
+
+```
+
+* 常用内置函数
+```python
+len(a)
+max(a)
+min(a)
+sum(a)
+```
+
+#### tuple 元组
+
+tuple是不可变的有序容器，一旦创建，元素不能被增、删、改
+
+* 基本创建
+```python
+t = (1, 2, 3) # 小括号标识元组
+t = (1, ) # 创建单元素元素后面也要加逗号
+t = tuple([1, 2, 3])
+```
+
+* 查
+元组的查询同列表
+
+* 常见用法
+    1. 解包：`a, b = (1, 2)`
+    1. 函数返回多个值，本质就是返回一个tuple
